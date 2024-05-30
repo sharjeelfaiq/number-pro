@@ -1,0 +1,28 @@
+{
+  "name": "number-pro",
+  "version": "1.0.0",
+  "description": "number-pro is a versatile JavaScript package that provides a comprehensive set of functions to manipulate numbers for both frontend and backend applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sharjeelfaiq/number-pro.git"
+  },
+  "keywords": [
+    "unixToDate",
+    "unixToTime",
+    "formatNumbers",
+    "extractNumber",
+    "decimalToRoman",
+    "romanToDecimal",
+    "getNumbers"
+  ],
+  "author": "Sharjeel Faiq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharjeelfaiq/number-pro/issues"
+  },
+  "homepage": "https://github.com/sharjeelfaiq/number-pro#readme"
+}
