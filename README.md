@@ -2,6 +2,8 @@
 
 number-pro is a versatile JavaScript package that provides a comprehensive set of functions to manipulate numbers for both frontend and backend applications.
 
+Visit the documentation at --> https://number-pro-documentation.netlify.app/
+
 ### Installation
 
 Install number-pro using npm, pnpm or yarn:
