@@ -2,7 +2,7 @@
 
 number-pro is a versatile JavaScript package that provides a comprehensive set of functions to manipulate numbers for both frontend and backend applications.
 
-Visit the documentation at --> https://number-pro-documentation.netlify.app/
+_DOCUMENTATION_ https://t.ly/qUIpo
 
 ### Installation
 
