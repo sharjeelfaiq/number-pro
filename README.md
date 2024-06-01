@@ -4,13 +4,15 @@ number-pro is a versatile JavaScript package that provides a comprehensive set o
 
 ### Installation
 
-Install number-pro using npm or yarn:
+Install number-pro using npm, pnpm or yarn:
 
 ```bash
 npm install number-pro
 ```
 
-or
+```bash
+pnpm install number-pro
+```
 
 ```bash
 yarn add number-pro
