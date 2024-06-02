@@ -9,15 +9,15 @@ number-pro is a versatile JavaScript package that provides a comprehensive set o
 Install number-pro using npm, pnpm or yarn:
 
 ```bash
-npm install number-pro
+npm install number-pro --save-dev
 ```
 
 ```bash
-pnpm install number-pro
+pnpm install number-pro -D
 ```
 
 ```bash
-yarn add number-pro
+yarn add number-pro -D
 ```
 
 ### Usage
