@@ -46,50 +46,31 @@ import { unixToDate, romanToDecimal } from "number-pro";
 
 number-pro offers a wide range of functions for various string manipulation tasks. Here's a brief description of each function:
 
-- **unixToDate(number)**: Converts a Unix timestamp to a human-readable date string.
-
 ```javascript
+// 1. unixToDate(number): Converts a Unix timestamp to a human-readable date string.
 numberPro.unixToDate(1620000000); // 5/3/2021
-```
 
-- **unixToTime(number)**: Converts a Unix timestamp to a human-readable time string.
-
-```javascript
+// 2. unixToTime(number): Converts a Unix timestamp to a human-readable time string.
 numberPro.unixToTime(103004870); // 9 : 27 : 50
-```
 
-- **formatNumbers(number)**: Formats a number or number string with comma after every 3 digits.
-
-```javascript
+// 3. formatNumbers(number): Formats a number or number string with comma after every 3 digits.
 numberPro.formatNumbers("103004870"); // 103,004,870
 numberPro.formatNumbers(103004870); // 103,004,870
-```
 
-- **extractNumber(string)**: Extracts numerical digits from a string.
-
-```javascript
+// 4. extractNumber(string): Extracts numerical digits from a string.
 numberPro.extractNumber("I have 2 apples and 3 pineapples"); //  2   3
-```
 
-- **decimalToRoman(number)**: Converts a decimal number to its Roman numeral equivalent.
-
-```javascript
+// 5. decimalToRoman(number): Converts a decimal number to its Roman numeral equivalent.
 numberPro.decimalToRoman(123); // CXXIII
 numberPro.decimalToRoman(10197); // MMMMMMMMMMCXCVII
 numberPro.decimalToRoman(1035); // MXXXV
-```
 
-- **romanToDecimal(number)**: Converts a Roman numeral string to its decimal equivalent.
-
-```javascript
+// 6. romanToDecimal(number): Converts a Roman numeral string to its decimal equivalent.
 numberPro.romanToDecimal("CXXIII"); // 123
 numberPro.romanToDecimal("MMMMMMMMMMCXCVII"); // 10197
 numberPro.romanToDecimal("MXXXV"); // 1035
-```
 
-- **getNumbers(startingNum, endingNum)**: Generates a sequence of numbers with starting and ending boundery numbers (inclusive).
-
-```javascript
+// 7. getNumbers(startingNum, endingNum): Generates a sequence of numbers with starting and ending boundery numbers (inclusive).
 numberPro.getNumbers(1, 10);
 // 1
 // 2
