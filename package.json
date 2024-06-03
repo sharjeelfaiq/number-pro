@@ -2,9 +2,10 @@
   "name": "number-pro",
   "version": "1.1.4",
   "description": "number-pro is a versatile JavaScript package that provides a comprehensive set of functions to manipulate numbers for both frontend and backend applications.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/sharjeelfaiq/number-pro/issues"
   },
-  "homepage": "https://github.com/sharjeelfaiq/number-pro#readme"
+  "homepage": "https://github.com/sharjeelfaiq/number-pro#readme",
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.5"
+  }
 }
