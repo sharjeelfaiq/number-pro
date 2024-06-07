@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getNumbers = exports.romanToDecimal = exports.decimalToRoman = exports.extractNumber = exports.formatNumbers = exports.unixToTime = exports.unixToDate = void 0;
+exports.getTimeDifference = exports.getNumbers = exports.romanToDecimal = exports.decimalToRoman = exports.extractNumber = exports.formatNumbers = exports.unixToTime = exports.unixToDate = void 0;
 /**
  * Converts a Unix timestamp to a formatted date string.
  *
@@ -176,6 +176,29 @@ const getNumbers = (startingNum, endingNum) => {
 };
 exports.getNumbers = getNumbers;
 /**
- * Retrieves a random quote from the list of quotes.
- * @returns {Object} An object containing a random quote and its author.
+ * Calculates the time difference between two dates.
+ * @param {string} date1 - The first date. Format: year-month-day.
+ * @param {string} date2 - The second date. Format: year-month-day.
+ * @returns {object} An object containing the time difference in milliseconds, seconds, minutes, hours, days, months, and years.
  */
+const getTimeDifference = (date1, date2) => {
+    const dateOne = new Date(date1);
+    const dateTwo = new Date(date2);
+    const differenceInMilliSecs = Math.abs(dateTwo.getTime() - dateOne.getTime());
+    const seconds = Math.floor(differenceInMilliSecs / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const months = Math.floor(days / 30);
+    const years = Math.floor(months / 12);
+    return {
+        milliseconds: differenceInMilliSecs,
+        seconds: seconds,
+        minutes: minutes,
+        hours: hours,
+        days: days,
+        months: months,
+        years: years,
+    };
+};
+exports.getTimeDifference = getTimeDifference;

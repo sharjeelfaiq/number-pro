@@ -82,6 +82,18 @@ numberPro.getNumbers(1, 10);
 // 8
 // 9
 // 10
+
+// 8. getTimeDIfference(date1, date2): Retuns an object containing the difference between two dates in milliseconds, seconds, minutes, hours, days, months, and years.
+numberPro.getTimeDifference("2022-01-01", "2021-01-02");
+// {
+//   milliseconds: 31449600000,
+//   seconds: 31449600,
+//   minutes: 524160,
+//   hours: 8736,
+//   days: 364,
+//   months: 12,
+//   years: 1
+// }
 ```
 
 ### Supoort
