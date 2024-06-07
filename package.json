@@ -18,7 +18,8 @@
     "extractNumber",
     "decimalToRoman",
     "romanToDecimal",
-    "getNumbers"
+    "getNumbers",
+    "getTimeDifference"
   ],
   "author": "Sharjeel Faiq",
   "license": "ISC",
