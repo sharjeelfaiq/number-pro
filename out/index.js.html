@@ -26,18 +26,21 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
+            <pre class="prettyprint source linenums"><code>"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTimeDifference = exports.getNumbers = exports.romanToDecimal = exports.decimalToRoman = exports.extractNumber = exports.formatNumbers = exports.unixToTime = exports.unixToDate = void 0;
+/**
  * Converts a Unix timestamp to a formatted date string.
  *
  * @param {number} num - The Unix timestamp to convert.
  * @returns {string} The formatted date string.
  */
 const unixToDate = (num) => {
-  const date = new Date(num * 1000);
-  const convertedStr = date.toLocaleDateString("en-US");
-  return convertedStr;
+    const date = new Date(num * 1000);
+    const convertedStr = date.toLocaleDateString("en-US");
+    return convertedStr;
 };
-
+exports.unixToDate = unixToDate;
 /**
  * Converts a Unix timestamp to a formatted time string.
  *
@@ -45,15 +48,14 @@ const unixToDate = (num) => {
  * @returns {string} The formatted time string in the format "hours : minutes : seconds".
  */
 const unixToTime = (num) => {
-  const date = new Date(num * 1000);
-  const hours = date.getHours();
-  const minutes = "0" + date.getMinutes();
-  const seconds = "0" + date.getSeconds();
-  const convertedStr =
-    hours + " : " + minutes.substr(-2) + " : " + seconds.substr(-2);
-  return convertedStr;
+    const date = new Date(num * 1000);
+    const hours = date.getHours();
+    const minutes = "0" + date.getMinutes();
+    const seconds = "0" + date.getSeconds();
+    const convertedStr = hours + " : " + minutes.substr(-2) + " : " + seconds.substr(-2);
+    return convertedStr;
 };
-
+exports.unixToTime = unixToTime;
 /**
  * Formats a string containing a number into a formatted number string.
  *
@@ -61,11 +63,11 @@ const unixToTime = (num) => {
  * @returns {string} The formatted number string.
  */
 const formatNumbers = (str) => {
-  const num = parseInt(str);
-  const formattedNumbers = num.toLocaleString();
-  return formattedNumbers;
+    const num = parseInt(str);
+    const formattedNumbers = num.toLocaleString();
+    return formattedNumbers;
 };
-
+exports.formatNumbers = formatNumbers;
 /**
  * Extracts numbers from a given string.
  *
@@ -73,80 +75,92 @@ const formatNumbers = (str) => {
  * @returns {string} - The extracted numbers as a string.
  */
 const extractNumber = (str) => {
-  const regex = /[0-9/ /]/g;
-  const nums = str.match(regex);
-  const extractedNumber = nums.join("");
-  return extractedNumber;
+    const regex = /[0-9/ /]/g;
+    const nums = str.match(regex);
+    const extractedNumber = nums ? nums.join("") : "";
+    return extractedNumber;
 };
-
+exports.extractNumber = extractNumber;
 /**
  * Converts a decimal number to a Roman numeral.
  * @param {number} num - The decimal number to convert.
  * @returns {string} The Roman numeral representation of the decimal number.
  */
 const decimalToRoman = (num) => {
-  const intToRoman = (num) => {
-    let result = "";
-    while (num) {
-      if (num >= 1000) {
-        result += "M";
-        num -= 1000;
-      } else if (num >= 500) {
-        if (num >= 900) {
-          result += "CM";
-          num -= 900;
-        } else {
-          result += "D";
-          num -= 500;
+    const intToRoman = (num) => {
+        let result = "";
+        while (num) {
+            if (num >= 1000) {
+                result += "M";
+                num -= 1000;
+            }
+            else if (num >= 500) {
+                if (num >= 900) {
+                    result += "CM";
+                    num -= 900;
+                }
+                else {
+                    result += "D";
+                    num -= 500;
+                }
+            }
+            else if (num >= 100) {
+                if (num >= 400) {
+                    result += "CD";
+                    num -= 400;
+                }
+                else {
+                    result += "C";
+                    num -= 100;
+                }
+            }
+            else if (num >= 50) {
+                if (num >= 90) {
+                    result += "XC";
+                    num -= 90;
+                }
+                else {
+                    result += "L";
+                    num -= 50;
+                }
+            }
+            else if (num >= 10) {
+                if (num >= 40) {
+                    result += "XL";
+                    num -= 40;
+                }
+                else {
+                    result += "X";
+                    num -= 10;
+                }
+            }
+            else if (num >= 5) {
+                if (num >= 9) {
+                    result += "IX";
+                    num -= 9;
+                }
+                else {
+                    result += "V";
+                    num -= 5;
+                }
+            }
+            else {
+                if (num >= 4) {
+                    result += "IV";
+                    num -= 4;
+                }
+                else {
+                    result += "I";
+                    num -= 1;
+                }
+            }
         }
-      } else if (num >= 100) {
-        if (num >= 400) {
-          result += "CD";
-          num -= 400;
-        } else {
-          result += "C";
-          num -= 100;
-        }
-      } else if (num >= 50) {
-        if (num >= 90) {
-          result += "XC";
-          num -= 90;
-        } else {
-          result += "L";
-          num -= 50;
-        }
-      } else if (num >= 10) {
-        if (num >= 40) {
-          result += "XL";
-          num -= 40;
-        } else {
-          result += "X";
-          num -= 10;
-        }
-      } else if (num >= 5) {
-        if (num >= 9) {
-          result += "IX";
-          num -= 9;
-        } else {
-          result += "V";
-          num -= 5;
-        }
-      } else {
-        if (num >= 4) {
-          result += "IV";
-          num -= 4;
-        } else {
-          result += "I";
-          num -= 1;
-        }
-      }
-    }
-    return result;
-  };
-  const convertedToRoman = intToRoman(Math.abs(Number(num)));
-  return convertedToRoman;
+        return result;
+    };
+    const convertedToRoman = intToRoman(Math.abs(Number(num)));
+    return convertedToRoman;
 };
-
+exports.decimalToRoman = decimalToRoman;
 /**
  * Converts a Roman numeral to decimal.
  *
@@ -154,25 +168,26 @@ const decimalToRoman = (num) => {
  * @returns {string} The decimal representation of the Roman numeral.
  */
 const romanToDecimal = (romanNum) => {
-  const romanToInt = (s) => {
-    const legend = "IVXLCDM";
-    const l = [1, 5, 10, 50, 100, 500, 1000];
-    let sum = 0;
-    while (s) {
-      if (!!s[1] &amp;&amp; legend.indexOf(s[0]) &lt; legend.indexOf(s[1])) {
-        sum += l[legend.indexOf(s[1])] - l[legend.indexOf(s[0])];
-        s = s.substring(2, s.length);
-      } else {
-        sum += l[legend.indexOf(s[0])];
-        s = s.substring(1, s.length);
-      }
-    }
-    return sum;
-  };
-  const convetedToDecimal = romanToInt(romanNum.toUpperCase()).toString();
-  return convetedToDecimal;
+    const romanToInt = (s) => {
+        const legend = "IVXLCDM";
+        const l = [1, 5, 10, 50, 100, 500, 1000];
+        let sum = 0;
+        while (s) {
+            if (!!s[1] &amp;&amp; legend.indexOf(s[0]) &lt; legend.indexOf(s[1])) {
+                sum += l[legend.indexOf(s[1])] - l[legend.indexOf(s[0])];
+                s = s.substring(2, s.length);
+            }
+            else {
+                sum += l[legend.indexOf(s[0])];
+                s = s.substring(1, s.length);
+            }
+        }
+        return sum;
+    };
+    const convetedToDecimal = romanToInt(romanNum.toUpperCase()).toString();
+    return convetedToDecimal;
 };
-
+exports.romanToDecimal = romanToDecimal;
 /**
  * Generates a string containing a list of numbers from a starting number to an ending number.
  *
@@ -181,31 +196,40 @@ const romanToDecimal = (romanNum) => {
  * @returns {string} - A string containing the list of numbers.
  */
 const getNumbers = (startingNum, endingNum) => {
-  let numbersList = "";
-  for (
-    let numberSeries = startingNum;
-    numberSeries &lt;= endingNum;
-    numberSeries++
-  ) {
-    numbersList += numberSeries.toString() + "\n";
-  }
-  return numbersList;
+    let numbersList = "";
+    for (let numberSeries = startingNum; numberSeries &lt;= endingNum; numberSeries++) {
+        numbersList += numberSeries.toString() + "\n";
+    }
+    return numbersList;
 };
-
+exports.getNumbers = getNumbers;
 /**
- * Retrieves a random quote from the list of quotes.
- * @returns {Object} An object containing a random quote and its author.
+ * Calculates the time difference between two dates.
+ * @param {string} date1 - The first date. Format: year-month-day.
+ * @param {string} date2 - The second date. Format: year-month-day.
+ * @returns {object} An object containing the time difference in milliseconds, seconds, minutes, hours, days, months, and years.
  */
-
-module.exports = {
-  unixToDate,
-  unixToTime,
-  formatNumbers,
-  extractNumber,
-  decimalToRoman,
-  romanToDecimal,
-  getNumbers,
+const getTimeDifference = (date1, date2) => {
+    const dateOne = new Date(date1);
+    const dateTwo = new Date(date2);
+    const differenceInMilliSecs = Math.abs(dateTwo.getTime() - dateOne.getTime());
+    const seconds = Math.floor(differenceInMilliSecs / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const months = Math.floor(days / 30);
+    const years = Math.floor(months / 12);
+    return {
+        milliseconds: differenceInMilliSecs,
+        seconds: seconds,
+        minutes: minutes,
+        hours: hours,
+        days: days,
+        months: months,
+        years: years,
+    };
 };
+exports.getTimeDifference = getTimeDifference;
 </code></pre>
         </article>
     </section>
@@ -216,13 +240,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#decimalToRoman">decimalToRoman</a></li><li><a href="global.html#extractNumber">extractNumber</a></li><li><a href="global.html#formatNumbers">formatNumbers</a></li><li><a href="global.html#getNumbers">getNumbers</a></li><li><a href="global.html#romanToDecimal">romanToDecimal</a></li><li><a href="global.html#unixToDate">unixToDate</a></li><li><a href="global.html#unixToTime">unixToTime</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#decimalToRoman">decimalToRoman</a></li><li><a href="global.html#extractNumber">extractNumber</a></li><li><a href="global.html#formatNumbers">formatNumbers</a></li><li><a href="global.html#getNumbers">getNumbers</a></li><li><a href="global.html#getTimeDifference">getTimeDifference</a></li><li><a href="global.html#romanToDecimal">romanToDecimal</a></li><li><a href="global.html#unixToDate">unixToDate</a></li><li><a href="global.html#unixToTime">unixToTime</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sat Jun 01 2024 20:12:57 GMT+0500 (Pakistan Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri Jun 07 2024 12:07:58 GMT+0500 (Pakistan Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
