@@ -1,6 +1,6 @@
 ## number-pro: Number Manipulation Utility for JavaScript
 
-number-pro is a versatile JavaScript package that provides a comprehensive set of functions to manipulate numbers for both frontend and backend applications.
+number-pro is a versatile JavaScript package that provides a comprehensive set of functions to manipulate numbers and get date difference for both frontend and backend applications.
 
 **DOCUMENTATION** https://t.ly/qUIpo
 
